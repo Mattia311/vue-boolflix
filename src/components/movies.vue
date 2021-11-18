@@ -1,9 +1,9 @@
 <template>
 <div>
-    <p>Titolo: {{}}</p>
-	<p>Titolo originale: {{}}</p>
-	<p>Lingua: {{}}</p>
-	<p>Voto: {{}}</p>
+    <p>Titolo: {{movie.title}}</p>
+	<p>Titolo originale: {{movie.original_title}}</p>
+	<p>Lingua: {{movie.original_language}}</p>
+	<p>Voto: {{movie.vote_average}}</p>
 </div>
 </template>
 
