@@ -2,16 +2,21 @@
   <div class="container">
       <ul class="d-flex row mt-4">
           <li class="col-4 text-center" v-for="(movie, index) in movies" :key="index">
-              <movies :movie="movie" />
+            <movies :movie="movie" />
           </li>
       </ul>
+      <ul class="d-flex row mt-4">
+		<li class="col-4 text-center" v-for="(serie, index) in series" :key="index">
+			<movies :movie="serie"/>
+		</li>
+	</ul>
   </div>
 </template>
 <script>
 
 import movies from './movies.vue';
 export default {
-    props: ['movies'],
+    props: ['movies','series'],
     components: {
 		movies
 	}
