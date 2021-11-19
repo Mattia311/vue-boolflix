@@ -1,6 +1,9 @@
 <template>
 <div>
-    <h1>Titolo: {{movie.title || movie.name}}</h1>
+	<div class="">
+       <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">
+    </div>
+    <h2>Titolo: {{movie.title || movie.name}}</h2>
 	<h4>Titolo originale: {{movie.original_title || movie.original_name}}</h4>
 	<hr>
 	<div>
