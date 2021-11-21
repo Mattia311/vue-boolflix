@@ -1,6 +1,7 @@
 <template>
+<div class="sfondo">
   <div class="container">
-      <ul class="d-flex row mt-4">
+      <ul class="d-flex row pt-4">
           <li class="col-4 text-center" v-for="(movie, index) in movies" :key="index">
             <movies :movie="movie" />
           </li>
@@ -11,6 +12,8 @@
 		</li>
 	</ul>
   </div>
+
+</div>
 </template>
 <script>
 
@@ -25,6 +28,14 @@ export default {
 </script>
 
 <style lang="scss">
+.sfondo {
+  background: gray;
+  height: 100%;
+}
+.mt-4 {
+    margin-top: 0px !important;
+}
+
 li {
     display: flex;
     color: white;
