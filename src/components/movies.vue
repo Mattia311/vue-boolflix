@@ -9,7 +9,9 @@
 	<div>
         <span>Language: {{movie.original_language}}</span> <img class="flag" :src="flag(movie.original_language)">
     </div>
-	<p>Voto: {{movie.vote_average}}</p>
+    <div class="voto">
+        <p>Voto:<i v-for="n in 5" :key="n" class="fa-star" :class="(n <= vote(movie.vote_average)) ? 'fas' : 'far'"></i></p>
+    </div>
 </div>
 </template>
 
@@ -29,6 +31,10 @@ export default {
             } else {
                 return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png";
             }
+        },
+        vote(num){
+            num = (num/2);
+            return num = Math.ceil(num)
         }
     },
 
