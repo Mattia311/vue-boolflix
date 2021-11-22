@@ -4,16 +4,16 @@
        <img class="img_copertina" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">
     </div>
     <div class="hover">
-    <p class="titolo1">Titolo: {{movie.title || movie.name}}</p>
-	<p class="titolo2">Titolo originale: {{movie.original_title || movie.original_name}}</p>
+    <p class="titolo1"><strong>Titolo:</strong>{{movie.title || movie.name}}</p>
+	<p class="titolo2"><strong>Titolo originale:</strong>{{movie.original_title || movie.original_name}}</p>
 	<div class="lenguage">
-        <span>Language: {{movie.original_language}}</span> <img class="flag" :src="flag(movie.original_language)">
+        <span><strong>Lenguage:</strong> {{movie.original_language}}</span> <img class="flag" :src="flag(movie.original_language)">
     </div>
     <div class="voto">
-        <p>Voto:<i v-for="n in 5" :key="n" class="fa-star" :class="(n <= vote(movie.vote_average)) ? 'fas' : 'far'"></i></p>
+        <p><strong>Voto:</strong><i v-for="n in 5" :key="n" class="fa-star" :class="(n <= vote(movie.vote_average)) ? 'fas' : 'far'"></i></p>
     </div>
     <div class="overview text-start">
-        <p>Overview: {{movie.overview}}</p>
+        <p><strong>Overview:</strong> {{movie.overview}}</p>
     </div>
 
     </div>
@@ -93,7 +93,7 @@ export default {
 }
 .hover {
     visibility: hidden;
-    background: rgba(54, 51, 51, 0.87);
+    background: rgba(20, 19, 19, 0.87);
     position: absolute;
     height: 519px;
     width: 348px;

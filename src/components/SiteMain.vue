@@ -48,6 +48,7 @@ li {
 h2 {
   color: red;
   background: black;
+  width: 200px;
 }
 
 

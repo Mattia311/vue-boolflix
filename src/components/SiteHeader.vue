@@ -6,17 +6,25 @@
   <div class="SiteHeader text-center" >
       <i class="fas fa-search" @click="$emit('searching', searchFilm)"></i>
       <input type="text" placeholder="Cerca un film" v-model="searchFilm" @keyup.enter="$emit('searching', searchFilm)">
+      <button @click.prevent="resetSearch()">Clear</button>
   </div>
 </div>
 </template>
 
 <script>
 export default {
-    data() {
+  data() {
 		return {
 			searchFilm: ""
 		}
 	},
+  methods : {
+    resetSearch() {
+            this.searchFilm = '';
+            this.$emit('search', this.searchFilm);
+        }
+
+  }
 }
 </script>
 
@@ -30,7 +38,6 @@ export default {
     margin-top: 25px;
     
     input {
-      margin-right: 50px;
       width: 400px;
     }
     i {
@@ -40,6 +47,12 @@ export default {
       padding-top: 6px;
       color: gray;
       cursor: pointer;
+    }
+    button {
+      margin-right: 50px;
+      background: white;
+      border: none;
+      height: 28px;
     }
   }
 }
