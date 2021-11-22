@@ -1,12 +1,14 @@
 <template>
 <div class="sfondo">
   <div class="container">
-      <ul class="d-flex row pt-4">
+    <h2 class="text-center">FILM:</h2>
+      <ul class="d-flex row">
           <li class="col-4 text-center" v-for="(movie, index) in movies" :key="index">
             <movies :movie="movie" />
           </li>
       </ul>
-      <ul class="d-flex row mt-4">
+      <h2 class="text-center">SERIE:</h2>
+      <ul class="d-flex row pt-4">
 		<li class="col-4 text-center" v-for="(serie, index) in series" :key="index">
 			<movies :movie="serie"/>
 		</li>
@@ -29,20 +31,23 @@ export default {
 
 <style lang="scss">
 .sfondo {
-  background: gray;
+  background: rgb(66, 64, 64);
   height: 100%;
-}
-.mt-4 {
-    margin-top: 0px !important;
 }
 
 li {
     display: flex;
     color: white;
-    background: rgb(163, 158, 158);
+    background: rgb(66, 64, 64);
     justify-content: center;
-    border: 1px solid rgb(0, 0, 0);
-    margin-top: 10px
+    border: none;
+    margin-top: 10px;
+    height: 515px;
+    margin-bottom: 50px;
+}
+h2 {
+  color: red;
+  background: black;
 }
 
 

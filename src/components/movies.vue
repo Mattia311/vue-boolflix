@@ -1,16 +1,21 @@
 <template>
-<div>
+<div class="movies">
 	<div class="">
-       <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">
+       <img class="img_copertina" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">
     </div>
-    <h2>Titolo: {{movie.title || movie.name}}</h2>
-	<h4>Titolo originale: {{movie.original_title || movie.original_name}}</h4>
-	<hr>
-	<div>
+    <div class="hover">
+    <p class="titolo1">Titolo: {{movie.title || movie.name}}</p>
+	<p class="titolo2">Titolo originale: {{movie.original_title || movie.original_name}}</p>
+	<div class="lenguage">
         <span>Language: {{movie.original_language}}</span> <img class="flag" :src="flag(movie.original_language)">
     </div>
     <div class="voto">
         <p>Voto:<i v-for="n in 5" :key="n" class="fa-star" :class="(n <= vote(movie.vote_average)) ? 'fas' : 'far'"></i></p>
+    </div>
+    <div class="overview text-start">
+        <p>Overview: {{movie.overview}}</p>
+    </div>
+
     </div>
 </div>
 </template>
@@ -42,8 +47,60 @@ export default {
 </script>
 
 <style lang="scss">
+.movies {
+    position: relative;
+}
+.img_copertina {
+    background: gray;
+    border: 3px solid white;
+}
+.lenguage {
+    position: absolute;
+    bottom: -29px;
+    margin-left: 13px;
+}
 .flag {
 	width: 30px;
+}
+.titolo1 {
+    visibility: hidden;
+    position: absolute;
+    top: 59px;
+    margin-left: 19px;
+}
+.titolo2 {
+    visibility: hidden;
+    position: absolute;
+    top: 90px;
+    margin-left: 19px;
+}
+.voto {
+    visibility: hidden;
+    position: absolute;
+    top: 130px;
+    margin-left: 19px;
+    i {
+        color: gold;
+    }
+    
+}
+.overview {
+    visibility: hidden;
+    position: absolute;
+    top: 166px;
+    margin-left: 19px;
+    font-size: 13px;
+}
+.hover {
+    visibility: hidden;
+    background: rgba(54, 51, 51, 0.87);
+    position: absolute;
+    height: 519px;
+    width: 348px;
+    top: 0;
+}
+.movies:hover .titolo2, .movies:hover .hover, .movies:hover .titolo1, .movies:hover .overview, .movies:hover .voto {
+    visibility: visible;
 }
 
 </style>
