@@ -1,10 +1,15 @@
 <template>
 <div class="movies">
 	<div class="">
-       <img class="img_copertina" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">
+       <img class="img_copertina" v-if="movie.poster_path != null" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="Film poster">
+       <!-- <img class="img_copertina" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt=""> -->
+       <div class="null text-start" v-else>
+           <h4>CI DISPIACE!!</h4>
+           <p>L'immagine di questo/a film/serie non è al momento disponibile</p>
+       </div>
     </div>
     <div class="hover">
-    <p class="titolo1"><strong>Titolo:</strong>{{movie.title || movie.name}}</p>
+    <p class="titolo1 text-start"><strong>Titolo:</strong>{{movie.title || movie.name}}</p>
 	<p class="titolo2"><strong>Titolo originale:</strong>{{movie.original_title || movie.original_name}}</p>
 	<div class="lenguage">
         <span><strong>Lenguage:</strong> {{movie.original_language}}</span> <img class="flag" :src="flag(movie.original_language)">
@@ -56,8 +61,8 @@ export default {
 }
 .lenguage {
     position: absolute;
-    bottom: -29px;
-    margin-left: 13px;
+    bottom: 335px;
+    margin-left: 18px;
 }
 .flag {
 	width: 30px;
@@ -65,7 +70,7 @@ export default {
 .titolo1 {
     visibility: hidden;
     position: absolute;
-    top: 59px;
+    top: 40px;
     margin-left: 19px;
 }
 .titolo2 {
@@ -87,7 +92,7 @@ export default {
 .overview {
     visibility: hidden;
     position: absolute;
-    top: 166px;
+    top: 200px;
     margin-left: 19px;
     font-size: 13px;
 }
@@ -101,6 +106,11 @@ export default {
 }
 .movies:hover .titolo2, .movies:hover .hover, .movies:hover .titolo1, .movies:hover .overview, .movies:hover .voto {
     visibility: visible;
+}
+.null {
+    margin-top: 228px;
+    font-size: 15px;
+    max-width: 100%;
 }
 
 </style>
